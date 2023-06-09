@@ -5,7 +5,7 @@ from streamlit_drawable_canvas import st_canvas
 import numpy as np
 import base64
 import io
-import cv2
+# import cv2
 
 def grafic() : 
     canvas_result = st_canvas(
