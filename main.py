@@ -29,7 +29,7 @@ else :
 	dict_arr = dict(zip(range(len(arr)), arr.tolist()))
 	d_ordenado = dict(sorted(dict_arr.items(), key=lambda x: x[1], reverse=True))
 
-	st.title( f' { round( list(d_ordenado.values())[0]*100,2) } % de ser {list(d_ordenado.keys())[0]} '  ) 
+	st.title( f" { round( list(d_ordenado.values())[0]*100,2) } % de ser {list(d_ordenado.keys())[0]} ;( don't laugh"  ) 
 
 	# for key, value in d_ordenado.items():
 
