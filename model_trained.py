@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st 
 from tensorflow.keras import regularizers
 from keras.layers import Dropout
+st.title( "Training Artificial Neural Network ')
 
 @st.cache_data()
 def ann() : 
@@ -45,7 +46,6 @@ def ann() :
               loss = loss_fn,
               metrics = ['accuracy'])
 
-  st.title( "Training Artificial Neural Network ')
   model.fit(x_train, y_train, epochs=10 )
 
   return model
