@@ -4,7 +4,6 @@ import pandas as pd
 import streamlit as st 
 from tensorflow.keras import regularizers
 from keras.layers import Dropout
-st.title( "Training Artificial Neural Network ')
 
 @st.cache_data()
 def ann() : 
