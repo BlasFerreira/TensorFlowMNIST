@@ -45,6 +45,7 @@ def ann() :
               loss = loss_fn,
               metrics = ['accuracy'])
 
+  st.title( "Training Artificial Neural Network ')
   model.fit(x_train, y_train, epochs=10 )
 
   return model
