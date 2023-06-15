@@ -6,7 +6,7 @@ import numpy as np
 
 
 # if __name__=='__main__':
-
+st.title( 'Training Artificial Neural Network')
 model_ann = ann()
 
 st.title(' Dibuje un numero del 0-9. ')
