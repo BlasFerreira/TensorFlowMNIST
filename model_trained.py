@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st 
 from tensorflow.keras import regularizers
 from keras.layers import Dropout
+from keras.models import load_model
 
 @st.cache_data()
 def ann() : 
@@ -20,24 +21,24 @@ def ann() :
   model = tf.keras.models.Sequential([
 
     # Input Layer
-      tf.keras.layers.Flatten(input_shape=(28, 28)),
-      # Hidden Layer
-      tf.keras.layers.Dense(512, activation='relu',kernel_initializer=tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.088, seed=None)),
-      tf.keras.layers.BatchNormalization(),#regularización y reducir el sobreajuste del modelo
-      tf.keras.layers.Dropout(0.1),#regularización y reducir el sobreajuste del modelo
+    tf.keras.layers.Flatten(input_shape=(28, 28)),
+    # Hidden Layer
 
-      tf.keras.layers.Dense(256, activation='relu',kernel_initializer=tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.088, seed=None)),
-      tf.keras.layers.BatchNormalization(),#regularización y reducir el sobreajuste del modelo
-      tf.keras.layers.Dropout(0.1),#regularización y reducir el sobreajuste del modelo
+    tf.keras.layers.Dense(784, activation='relu', kernel_regularizer=regularizers.l2(1e-4)),
+    #   tf.keras.layers.BatchNormalization(),#regularización y reducir el sobreajuste del modelo
+    tf.keras.layers.Dropout(0.3),#regularización y reducir el sobreajuste del modelo
 
-      tf.keras.layers.Dense(128, activation='relu',kernel_initializer=tf.keras.initializers.RandomNormal(mean=0.0, stddev=0.088, seed=None)),
-      tf.keras.layers.BatchNormalization(),#regularización y reducir el sobreajuste del modelo
-      tf.keras.layers.Dropout(0.2),#regularización y reducir el sobreajuste del modelo
+    tf.keras.layers.Dense(416, activation='relu', kernel_regularizer=regularizers.l2(1e-4)),
+    #   tf.keras.layers.BatchNormalization(),#regularización y reducir el sobreajuste del modelo
+    tf.keras.layers.Dropout(0.3),#regularización y reducir el sobreajuste del modelo
       
-     # Outoput Layer
-      tf.keras.layers.Dense(10,activation='softmax'), #Esta capa tiene 10 neuronas, clasificación de 10 categorías
-  ])
+    tf.keras.layers.Dense(512, activation='relu', kernel_regularizer=regularizers.l2(1e-4)),
+    #   tf.keras.layers.BatchNormalization(),#regularización y reducir el sobreajuste del modelo
+    tf.keras.layers.Dropout(0.3),#regularización y reducir el sobreajuste del modelo
 
+    # Outoput Layer
+    tf.keras.layers.Dense(10,activation='softmax'), #Esta capa tiene 10 neuronas, clasificación de 10 categorías
+  ])
 
   loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 
@@ -45,8 +46,10 @@ def ann() :
               loss = loss_fn,
               metrics = ['accuracy'])
 
-  model.fit(x_train, y_train, epochs=10 )
+  model.fit(x_train, y_train, epochs=1 )
 
+  model.save('model.h5')
+  model_final = load_model('model.h5')
   return model
 
 
