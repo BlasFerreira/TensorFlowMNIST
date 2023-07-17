@@ -46,7 +46,7 @@ def ann() :
               loss = loss_fn,
               metrics = ['accuracy'])
 
-  model.fit(x_train, y_train, epochs=1 )
+  model.fit(x_train, y_train, epochs=20 )
 
   model.save('model.h5')
   model_final = load_model('model.h5')
