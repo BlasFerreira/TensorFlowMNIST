@@ -20,10 +20,19 @@ model_ann = ann()
 st.title(' Dibuje un numero del 0-9. ')
 sample_img = grafic() 
 
-# Upload dataset to try
+# Load and prepare the MNIST dataset
 mnist = tf.keras.datasets.mnist
+# Split dataset in data of Train and Data od Test
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-x_train, x_test = x_train / 255.0, x_test / 255.0
+x_train, x_val, y_train, y_val  = train_test_split( x_train, y_train, test_size=0.166, random_state=4)
+x_train,x_val, x_test = x_train / 255.0, x_val/ 255.0, x_test / 255.0
+
+x_train = x_train.reshape((-1, 28, 28, 1))
+y_train = to_categorical(y_train, 10)
+x_val = x_val.reshape((-1, 28, 28, 1))
+y_val= to_categorical(y_val, 10)
+
+print(sample_img)
 
 
 
@@ -49,13 +58,13 @@ else :
 	# imagen = Image.fromarray(np.uint8( np.reshape(sample_img *255,(28,28)) ))
 	# imagen.save("lienzoIMG.png")
 
-	im = Image.fromarray(np.uint8( np.reshape( x_train[17:18] *255,(28,28)) ))
-	im.save("mnist_data.png")
+	# im = Image.fromarray(np.uint8( np.reshape( x_train[17:18] *255,(28,28)) ))
+	# im.save("mnist_data.png")
 
 
 	# xaux=x_test
 	# yauc=y_test
-	# for n in range(0,20)  :
+	# for n in range(0,50)  :
 	#     predictions = model_ann(xaux[n:n+1]).numpy()
 	#     arr = tf.nn.softmax(predictions).numpy()[0]
 	#     dict_arr = dict(zip(range(len(arr)), arr.tolist()))

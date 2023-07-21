@@ -9,8 +9,8 @@ import io
 
 def grafic() : 
     canvas_result = st_canvas(
-        fill_color="rgba(255, 0, 0, 0.9)",  # Color de fondo del lienzo
-        stroke_width=23,  # Ancho del trazo
+        fill_color="rgba(255, 255, 255, 0.9)",  # Color de fondo del lienzo
+        stroke_width=20,  # Ancho del trazo
         stroke_color="Black",  # Color del trazo
         background_color="#FFF",  # Color de fondo de la aplicación
         height=280,  # Altura del lienzo en píxeles
@@ -28,7 +28,7 @@ def grafic() :
         img_inverted = ImageOps.invert(img_resized)
 
         img_array = np.array(img_inverted)
-        img_array = np.reshape(img_array, (1, 28, 28))
+        img_array = np.reshape(img_array, (-1, 28, 28, 1))
 
         return img_array/255
 
