@@ -19,15 +19,8 @@ st.write('''This project develops a **Convolutional Neural Network (CNN)** to re
 	optimize model parameters. The goal is to achieve high accuracy in digit recognition for 
 	practical applications like optical character recognition and document processing.''')
 
-# Divide la pantalla en dos columnas
-col1, col2 = st.columns(2)
+st.image('./0_u5-PcKYVfUE5s2by.gif')
 
-# Muestra la primera imagen en la primera columna
-url1 = './0_u5-PcKYVfUE5s2by.gif'
-col1.image(url1)
-
-
-col2.image('./MNIST_DATA.png')
 
 model_ann = ann()
 
