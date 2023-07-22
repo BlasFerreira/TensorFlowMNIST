@@ -7,7 +7,7 @@ import numpy as np
 
 # if __name__=='__main__':
 st.title( 'Convolutional Neural Network for MNIST Handwritten Digit Classification')
-R
+
 
 st.write('''The **MNIST** dataset is a collection of 70,000 handwritten digits (0 to 9) in 
 	28x28 grayscale images. It serves as a standard benchmark for image classification 
@@ -45,9 +45,6 @@ x_train = x_train.reshape((-1, 28, 28, 1))
 y_train = to_categorical(y_train, 10)
 x_val = x_val.reshape((-1, 28, 28, 1))
 y_val= to_categorical(y_val, 10)
-
-print(sample_img)
-
 
 
 if np.all( np.reshape(sample_img, (28, 28)) == 0):
@@ -90,3 +87,8 @@ else :
 	#     st.write(np.reshape(xaux[n:n+1], (28, 28)) )
 
 
+github_code = {'Convolutional Neural Network Code' : 'https://github.com/BlasFerreira/TensorFlowMNIST/blob/main/model_trained.py'}
+
+
+for project, link in github_code.items():
+    st.write(f"[{project}]({link})")

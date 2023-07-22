@@ -11,16 +11,6 @@ from sklearn.model_selection import train_test_split
 @st.cache_data()
 def ann() : 
 
-  # # Load and prepare the MNIST dataset
-  # mnist = tf.keras.datasets.mnist
-
-  # # Split dataset in data of Train and Data od Test
-  # (x_train, y_train), (x_test, y_test) = mnist.load_data()
-
-  # # The pixel values of the images range from __0__ through __255__.
-  # x_train, x_test = x_train / 255.0, x_test / 255.0
-
-
   # Load and prepare the MNIST dataset
   mnist = tf.keras.datasets.mnist
   # Split dataset in data of Train and Data od Test
