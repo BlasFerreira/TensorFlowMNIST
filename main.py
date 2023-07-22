@@ -6,16 +6,30 @@ import numpy as np
 
 
 # if __name__=='__main__':
-st.title( 'Training Artificial Neural Network')
+st.title( 'Convolutional Neural Network for MNIST Handwritten Digit Classification')
+R
 
-# # Divide la pantalla en dos columnas
-# col1, col2 = st.columns(2)
+st.write('''The **MNIST** dataset is a collection of 70,000 handwritten digits (0 to 9) in 
+	28x28 grayscale images. It serves as a standard benchmark for image classification 
+	tasks and is widely used in machine learning and computer vision research.''')
 
-# # Muestra la primera imagen en la primera columna
-# url1 = './1.jpg'
-# col1.image(url1)
+st.write('''This project develops a **Convolutional Neural Network (CNN)** to recognize handwritten digits
+	using the MNIST dataset. The CNN architecture includes convolutional, pooling, and fully 
+	connected layers. Training employs backpropagation and stochastic gradient descent to 
+	optimize model parameters. The goal is to achieve high accuracy in digit recognition for 
+	practical applications like optical character recognition and document processing.''')
 
-model_ann = ann()
+# Divide la pantalla en dos columnas
+col1, col2 = st.columns(2)
+
+# Muestra la primera imagen en la primera columna
+url1 = './0_u5-PcKYVfUE5s2by.gif'
+col1.image(url1)
+
+
+col2.image('./MNIST_DATA.png')
+
+# model_ann = ann()
 
 st.title(' Dibuje un numero del 0-9. ')
 sample_img = grafic() 
