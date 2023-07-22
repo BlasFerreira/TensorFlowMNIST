@@ -29,7 +29,7 @@ col1.image(url1)
 
 col2.image('./MNIST_DATA.png')
 
-# model_ann = ann()
+model_ann = ann()
 
 st.title(' Dibuje un numero del 0-9. ')
 sample_img = grafic() 
